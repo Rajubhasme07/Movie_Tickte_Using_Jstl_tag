@@ -17,7 +17,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
+
+import com.mysql.cj.Session;
 
 
 @WebServlet("/servlet")
@@ -65,7 +68,7 @@ public class Servlet1 extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-if(imageFileName.equals(null)){
+       if(imageFileName.equals(null)){
 			
 			out.print("<script>alert(' Warning : Insert Image first !!')</script>");
 		}
@@ -74,25 +77,30 @@ if(imageFileName.equals(null)){
 			try {
 			
 				Connection con = Conn.takeConnection();
-				String mname=request.getParameter("mname");
-				PreparedStatement ps = con.prepareStatement("update all_movies set mimage=? where mname="+mname+"");
+				HttpSession session=request.getSession();
+				String mname=(String)session.getAttribute("mname");
+				
+			System.out.println(mname);
+				PreparedStatement ps = con.prepareStatement("update all_movies set mimage=? where mname=?");
 				
 				ps.setString(1, imageFileName);
 				ps.setString(2, mname);
+			
+			
 				
 				int status = ps.executeUpdate();
 				con.close();
 				if(status>0)
 				{
 					
-					response.sendRedirect("Shmoves.jsp");
+					response.sendRedirect("adhome.jsp");
 					
 	
 				}
 				
 				else
 				{
-					
+					out.print("Data not update");
 				}
 				
 			} catch (SQLException e) {

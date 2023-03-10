@@ -37,12 +37,14 @@
 </head>
 
 <body>
-			<!-- session  -->
-			<c:set var="uname" value="sessionScop.aname"></c:set>
-			<c:if test="${uname==null}">
+			<!-- 	Session -->
+			<c:set var="aname" value="${sessionScope.aname}"/>
+		
+			<c:if test="${sessionScope.aname==null}">
 			<c:redirect url="signin.jsp"/>
 			</c:if>
-			<!-- session End -->
+		
+			<!--Session -->
 
 
     <div class="container-fluid position-relative d-flex p-0">
@@ -63,22 +65,22 @@
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                        <img class="rounded-circle me-lg-2" src="img/mydp.jpg" alt="" style="width: 40px; height: 40px;">
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
-                    <div class="ms-3">
-                        <h6 class="mb-0">Raj Bhasme</h6>
+                     <div class="ms-3">
+                        <h6 class="mb-0">${aname}</h6>
                         <span>Admin</span>
                     </div>
                 </div>
            <div class="navbar-nav w-100">
-                    <a href="adhome.jsp" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="adhome.jsp" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                       
                 <div class="nav-item">
                         <a href="addmove.jsp" class="nav-link dropdown-toggle"><i class="fa fa-laptop me-2"></i>Add Movies</a>
                     </div>
                     <div class="nav-item">
-                        <a href="Shmoves.jsp?pageid=1" class="nav-link dropdown-toggle"><i class="fa fa-laptop me-2"></i>All Movies</a>
+                        <a href="Shmoves.jsp?pageid=1" class="nav-link dropdown-toggle active"><i class="fa fa-laptop me-2"></i>All Movies</a>
                     </div>
                      <div class="nav-item">
                         <a href="shmoves.jsp" class="nav-link dropdown-toggle"><i class="fa fa-laptop me-2"></i>Customer</a>
@@ -164,8 +166,8 @@
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">John Doe</span>
+                           <img class="rounded-circle me-lg-2" src="img/mydp.jpg" alt="" style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex">${aname}</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
@@ -209,7 +211,7 @@
 					                <div class="row">
 					                    <div class="col-lg-3">
 					                        <div >
-					        <img  class="anime__details__pic set-bg" src="img/images.jpg">
+					        <img  class="anime__details__pic set-bg" src="img/${row.mimage}">
                             <div class="comment"><i class="fa fa-comments"></i> 11</div>
                             <div class="view"><i class="fa fa-eye"></i> 9141</div>
                         </div>

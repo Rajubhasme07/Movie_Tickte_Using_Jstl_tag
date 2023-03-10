@@ -35,6 +35,14 @@
 </head>
 
 <body>
+        <!-- 	Session -->
+			<c:set var="aname" value="${sessionScope.aname}"/>
+		
+			<c:if test="${sessionScope.aname==null}">
+			<c:redirect url="signin.jsp"/>
+			</c:if>
+		
+			<!--Session -->
     <div class="container-fluid position-relative d-flex p-0">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -189,7 +197,7 @@
             <!-- Form Start -->
             
                  
-                   <c:set var="mname" value="${param.mname}"/>
+                   <c:set var="mname" scope="session" value="${param.mname}"/>
                    
                    <div class="col-sm-12 col-xl-6">
                         <div class="bg-secondary rounded h-100 p-4">
@@ -202,6 +210,7 @@
                                     <div class="col-sm-10">
                                         <input type="file"  name="image" class="form-control" id="inputEmail3" required aria-label="Upload">
                                         <input type="hidden" value="${mname}">
+                                        <c:out value="${mname}"></c:out>
                                     </div>
                                 </div>
                  				

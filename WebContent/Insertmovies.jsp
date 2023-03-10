@@ -15,11 +15,7 @@
 </head>
 <body>
 		
-			
-		
-<%-- 			
-		<sql:setDataSource var="snapshot" driver="com.mysql.cj.jdbc.Driver"
-url="jdbc:mysql://localhost:3306/Movies" user ="root" password ="abc123"/> --%>
+
 			
 			<sql:update dataSource="${snapshot}" var="count">
 			INSERT INTO All_Movies (mname,mrev,mtime,mdate,mcer,mdim,mcast,tkprice) VALUES (?,?,?,?,?,?,?,?)
