@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>DarkPan - Bootstrap 5 Admin Template</title>
+    <title>Admin Login</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -64,13 +64,7 @@
                                 <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Bookmymovie</h3>
                                 <h6 class="text-primary">Welcome Admin</h3>
                             </a>
-                            
-                            
-                        
-				              
-				              
-				              
-				              
+                    
                             <h3>Sign In</h3>
                         </div>
                         <form action="sinbk.jsp">
@@ -87,10 +81,10 @@
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
                             </div>
-                            <a href="">Forgot Password</a>
+                        
                         </div>
                         <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
-                        <p class="text-center mb-0">Don't have an Account? <a href="">Sign Up</a></p>
+                       
                         </form>
                     </div>
                 </div>

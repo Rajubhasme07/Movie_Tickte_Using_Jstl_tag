@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@include file="Connection.jsp" %>
      <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 	<%@ taglib uri = "http://java.sun.com/jsp/jstl/sql" prefix = "sql" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -9,12 +10,11 @@
 <title>back</title>
 </head>
 <body>
-<sql:setDataSource var="snapshot" driver="com.mysql.cj.jdbc.Driver"
-url="jdbc:mysql://localhost:3306/Movies" user ="root" password ="abc123"/>
 
-        <c:set var="aname" value="${param.aname}"></c:set>
-         <c:set var="apass" value="${param.apass}"></c:set>
+
         
+         <c:set var="apass" value="${param.apass}"/>
+        <c:set  var="aname" value="${param.aname}" scope="session"/>
 
          <sql:query dataSource = "${snapshot}" var ="result">
             SELECT * from ad_lg;

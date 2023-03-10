@@ -1,4 +1,5 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,6 +34,15 @@
 </head>
 
 <body>
+		<!-- 	Session -->
+			<c:set var="aname" value="${sessionScope.aname}"/>
+		
+			<c:if test="${sessionScope.aname==null}">
+			<c:redirect url="signin.jsp"/>
+			</c:if>
+		
+			<!--Session -->
+			
     <div class="container-fluid position-relative d-flex p-0">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -55,7 +65,7 @@
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
-                        <h6 class="mb-0">Raj Bhasme</h6>
+                        <h6 class="mb-0"><c:out value="${aname}"></c:out></h6>
                         <span>Admin</span>
                     </div>
                 </div>
@@ -170,7 +180,7 @@
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
+                            <a href="adlogout.jsp" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>
@@ -336,6 +346,8 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+   
+
 </body>
 
 </html>
